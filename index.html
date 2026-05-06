@@ -2,77 +2,78 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Octavio Garza | Portfolio</title>
-<link rel="icon" href="favicon.png" type="image/x-icon">
-  <link rel="stylesheet" href="styles.css" />
+
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
 <div class="noise"></div>
 
-<div class="scene active">
-  <header class="hero">
-    <h1>Octavio Garza</h1>
-    <p class="role">Photographer & Video Editor</p>
-    <p class="subtitle">Visual storytelling through photography and cinematic editing.</p>
-  </header>
-</div>
 
-<div class="scene">
-  <section class="section">
-    <h2>About</h2>
-    <p>
-      I’m Octavio Garza, a photographer and video editor focused on visual storytelling through composition, lighting, and motion. My work blends urban photography with cinematic editing to create emotionally driven visuals. I specialize in capturing authentic moments and shaping them into structured visual narratives. Currently, I am refining my creative style through both photography and post-production workflows.
-    </p>
-  </section>
-</div>
+<header class="hero">
+  <h1>Octavio Garza</h1>
+  <p class="role">Photographer & Video Editor</p>
+  <p class="subtitle">
+    Visual storytelling through light, composition, and cinematic editing.
+  </p>
+</header>
 
-<div class="scene">
-  <section class="section">
-    <h2>Photography</h2>
 
-    <div class="gallery">
-      <img src="assets/photo1.jpg" class="gallery-img" />
-      <img src="assets/photo2.jpg" class="gallery-img" />
-      <img src="assets/photo3.jpg" class="gallery-img" />
-      <img src="assets/photo4.jpg" class="gallery-img" />
-      <img src="assets/photo5.jpg" class="gallery-img" />
-      <img src="assets/photo6.jpg" class="gallery-img" />
-    </div>
-  </section>
-</div>
+<section class="section reveal">
+  <h2>About</h2>
+  <p>
+    I’m Octavio Garza, a photographer and video editor focused on visual storytelling through composition, lighting, and motion. My work blends urban photography with cinematic editing to create emotionally driven visuals. I specialize in capturing authentic moments and transforming them into structured visual narratives. Currently, I am refining my creative style through photography and post-production workflows.
+  </p>
+</section>
 
-<div class="scene">
-  <section class="section">
-    <h2>Video Editing</h2>
+<section class="section reveal">
+  <h2>Photography</h2>
 
-    <div class="video-thumb" id="openVideo">
-    <video class="video" controls>
-      <source src="assets/video1.mp4" type="video/mp4">
-    </video>
-  </section>
-</div>
+  <div class="gallery">
+    <img src="assets/photo1.jpg" class="gallery-img">
+    <img src="assets/photo2.jpg" class="gallery-img">
+    <img src="assets/photo3.jpg" class="gallery-img">
+    <img src="assets/photo4.jpg" class="gallery-img">
+    <img src="assets/photo5.jpg" class="gallery-img">
+    <img src="assets/photo6.jpg" class="gallery-img">
+  </div>
+</section>
 
-<div class="scene">
-  <section class="section">
-    <h2>Contact</h2>
-    <p>Email: your.email@example.com</p>
-  </section>
-</div>
+
+<section class="section reveal">
+  <h2>Video Editing</h2>
+
+  <div class="video-card" id="openVideo">
+    ▶ Watch Cinematic Reel
+  </div>
+</section>
+
+
+<section class="section reveal">
+  <h2>Contact</h2>
+
+  <div class="contact-card">
+    <p>Let’s work together on creative projects, photography, or video production.</p>
+    <p class="email">your.email@example.com</p>
+  </div>
+</section>
+
 
 <div class="lightbox" id="lightbox">
   <span class="close" id="closeBtn">&times;</span>
-  <img id="lightboxImg" class="lightbox-img" />
+  <img id="lightboxImg">
   <span class="nav prev" id="prev">&#10094;</span>
   <span class="nav next" id="next">&#10095;</span>
 </div>
 
-<div class="video-lightbox" id="videoLightbox">
+<div class="video-modal" id="videoModal">
   <span class="close" id="closeVideo">&times;</span>
-  <video id="modalVideo" controls>
-    <source src="assets/video/reel.mp4" type="video/mp4" />
+  <video controls id="videoPlayer">
+    <source src="assets/video/reel.mp4" type="video/mp4">
   </video>
 </div>
 
