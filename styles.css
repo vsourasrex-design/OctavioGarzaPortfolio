@@ -17,25 +17,51 @@ body {
   color: var(--text);
 }
 
+h1, h2, h3 {
+  font-family: "Playfair Display", serif;
+  letter-spacing: -0.03em;
+}
 
 h1 {
-  font-size: 3.5rem;
-  letter-spacing: -0.05em;
+  font-size: 3.6rem;
+  font-weight: 600;
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 2.2rem;
+  font-weight: 600;
   border-left: 4px solid var(--g2);
-  padding-left: 12px;
-  margin-bottom: 20px;
+  padding-left: 14px;
+  margin-bottom: 24px;
+}
+
+p {
+  font-family: "Inter", sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text);
+  font-weight: 400;
 }
 
 .subtitle {
+  font-family: "Inter", sans-serif;
+  font-size: 1.1rem;
   color: var(--muted);
+  font-weight: 300;
 }
 
 .role {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: var(--g1);
+}
+
+.email {
+  font-family: "JetBrains Mono", monospace;
+  color: var(--g1);
+  font-size: 0.95rem;
 }
 
 .hero {
