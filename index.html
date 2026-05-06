@@ -1,82 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Octavio Garza | Portfolio</title>
 
-  <title>Octavio Garza Portfolio</title>
-  <meta name="description" content="Portfolio of Octavio Garza showcasing web design and development projects">
-
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="assets/favicon.png">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
 
-<header>
-  <h1>Octavio Garza</h1>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<main>
+<div class="noise"></div>
 
 
-  <section id="about" class="fade-in">
-    <h2>About Me</h2>
+<div class="scene active">
 
-    <p>Heyo my name is Octavio Garza I am an photographer/videographer. Through photography, I focus on composition, lighting, and perspective to create meaningful images. In video editing, I enjoy combining footage with pacing, transitions, and sound to produce polished and engaging content. These creative skills enhance my web design work by strengthening my eye for detail and visual storytelling.</p>
+  <header class="hero">
+    <h1>Octavio Garza</h1>
+    <p class="role">Photographer & Video Editor</p>
+    <p class="subtitle">
+      Visual storytelling through photography and cinematic editing.
+    </p>
+  </header>
 
-    <p>Through this course, I have learned HTML, CSS, and responsive design. I focus on accessibility, performance, and modern layout techniques.</p>
+</div>
 
-  <section id="projects" class="fade-in">
-    <h2>Projects</h2>
+<div class="scene">
+  <section class="section">
+    <h2>About</h2>
+    <p>
+      I’m Octavio Garza, a photographer and video editor focused on visual storytelling through composition, lighting, and motion.
+    </p>
+    <p>
+      I create work centered around emotion, structure, and cinematic visual language.
+    </p>
+  </section>
+</div>
 
-    <div class="projects">
 
-      <div class="project">
-        <img src="assets/photo1.jpg" alt="photograph1">
-        <h3>Project One</h3>
-        <p>Photography of a Supra.</p>
-      </div>
+<div class="scene">
+  <section class="section">
+    <h2>Photography</h2>
 
-      <div class="project">
-        <img src="assets/photo2.jpg" alt="photograph2">
-        <h3>Project Two</h3>
-        <p>Photography of a elderly couple.</p>
-      </div>
+    <div class="gallery">
 
-<div class="project">
-<video controls width="100%">
-    <source src="assets/video1.mp4" type="video1/mp4">
-  </video>
-
-  <h3>Project Three</h3>
-  <p>A video editing project showcasing transitions, pacing, and visual storytelling techniques.</p>
-
-</div>>
+      <img src="assets/images/photo1.jpg" class="gallery-img" alt="">
+      <img src="assets/images/photo2.jpg" class="gallery-img" alt="">
+      <img src="assets/images/photo3.jpg" class="gallery-img" alt="">
+      <img src="assets/images/photo4.jpg" class="gallery-img" alt="">
+      <img src="assets/images/photo5.jpg" class="gallery-img" alt="">
+      <img src="assets/images/photo6.jpg" class="gallery-img" alt="">
 
     </div>
   </section>
+</div>
 
-  <section id="contact" class="fade-in">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:octaviojgarza13@gmail.com">Octaviojgarza13@gmail.com</a></p>
 
-    <button onclick="showMessage()">Click Me</button>
-    <p id="message"></p>
+<div class="scene">
+  <section class="section">
+    <h2>Video Editing</h2>
+
+    <video class="video" controls>
+      <source src="assets/video/reel.mp4" type="video/mp4">
+    </video>
+
+    <p class="caption">
+      Cinematic editing reel focused on pacing, color grading, and storytelling.
+    </p>
   </section>
+</div>
 
-</main>
+<div class="scene">
+  <section class="section">
+    <h2>Contact</h2>
+    <p>Email: your.email@example.com</p>
+  </section>
+</div>
 
-<footer>
-  <p>© 2026 Octavio Garza</p>
-</footer>
+<div class="lightbox" id="lightbox">
+  <span class="close" id="closeBtn">&times;</span>
+  <img id="lightboxImg" class="lightbox-img" />
+  <span class="nav prev" id="prev">&#10094;</span>
+  <span class="nav next" id="next">&#10095;</span>
+</div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
