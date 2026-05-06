@@ -1,72 +1,75 @@
+const scenes = document.querySelectorAll(".scene");
+let index = 0;
+let locked = false;
 
-document.addEventListener("DOMContentLoaded", () => {
+function setScene(i) {
+  if (locked || i === index || i < 0 || i >= scenes.length) return;
+
+  locked = true;
+
+  scenes[index].classList.remove("active");
+  index = i;
+
+  scenes[index].classList.add("active");
+
+  setTimeout(() => {
+    locked = false;
+  }, 1200);
+}
+
+window.addEventListener("wheel", (e) => {
+  if (e.deltaY > 0) setScene(index + 1);
+  else setScene(index - 1);
+});
+
+window.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowDown") setScene(index + 1);
+  if (e.key === "ArrowUp") setScene(index - 1);
+});
 
 
-  const navLinks = document.querySelectorAll("nav a");
+const imgs = document.querySelectorAll(".gallery-img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightboxImg");
+const closeBtn = document.getElementById("closeBtn");
+const prev = document.getElementById("prev");
+const next = document.getElementById("next");
 
-  navLinks.forEach(link => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
+let current = 0;
+const arr = Array.from(imgs);
 
-      const targetId = link.getAttribute("href");
-      const targetSection = document.querySelector(targetId);
+function open(i) {
+  current = i;
+  lightboxImg.src = arr[current].src;
+  lightbox.classList.add("show");
+}
 
-      targetSection.scrollIntoView({
-        behavior: "smooth"
-      });
-    });
-  });
+function close() {
+  lightbox.classList.remove("show");
+}
 
+function nextImg() {
+  current = (current + 1) % arr.length;
+  lightboxImg.src = arr[current].src;
+}
 
-  const sections = document.querySelectorAll(".fade-in");
+function prevImg() {
+  current = (current - 1 + arr.length) % arr.length;
+  lightboxImg.src = arr[current].src;
+}
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = "1";
-        entry.target.style.transform = "translateY(0)";
-      }
-    });
-  }, {
-    threshold: 0.2
-  });
+imgs.forEach((img, i) => img.addEventListener("click", () => open(i)));
 
-  sections.forEach(section => {
-    section.style.opacity = "0";
-    section.style.transform = "translateY(20px)";
-    observer.observe(section);
-  });
+closeBtn.addEventListener("click", close);
+next.addEventListener("click", nextImg);
+prev.addEventListener("click", prevImg);
 
-  const button = document.querySelector("button");
-  const message = document.getElementById("message");
+lightbox.addEventListener("click", (e) => {
+  if (e.target === lightbox) close();
+});
 
-  if (button) {
-    button.addEventListener("click", () => {
-      message.textContent = "Thanks for visiting my portfolio!";
-      message.style.marginTop = "10px";
-      message.style.color = "#00796b";
-    });
-  }
-
-  const allSections = document.querySelectorAll("section");
-
-  window.addEventListener("scroll", () => {
-    let current = "";
-
-    allSections.forEach(section => {
-      const sectionTop = section.offsetTop - 100;
-      if (window.scrollY >= sectionTop) {
-        current = section.getAttribute("id");
-      }
-    });
-
-    navLinks.forEach(link => {
-      link.classList.remove("active");
-
-      if (link.getAttribute("href") === `#${current}`) {
-        link.classList.add("active");
-      }
-    });
-  });
-
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") close();
+  if (e.key === "ArrowRight") nextImg();
+  if (e.key === "ArrowLeft") prevImg();
 });
