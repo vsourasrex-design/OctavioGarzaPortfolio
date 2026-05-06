@@ -1,58 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Octavio Garza Portfolio</title>
+  <meta name="description" content="Portfolio of Octavio Garza showcasing web design and development projects">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="images/favicon.ico">
+</head>
+
+<body>
+
+<header>
+  <h1>Octavio Garza</h1>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
 <main>
 
+  <!-- ABOUT -->
   <section id="about" class="fade-in">
     <h2>About Me</h2>
 
-    <p>
-      Hello, my name is Octavio Garza, and I am an aspiring web designer and developer with a strong interest in creating clean, functional, and visually appealing websites. I enjoy combining creativity with technical skills to build digital experiences that are both engaging and easy to use.
-    </p>
+    <p>I am an aspiring web designer focused on creating clean and user-friendly websites that combine creativity with functionality.</p>
 
-    <p>
-      Throughout this course, I have developed skills in HTML, CSS, and responsive design. I’ve learned how to structure websites using semantic elements, apply consistent styling, and ensure that my projects adapt across different screen sizes. I also focused on improving performance and accessibility to make my websites more efficient and user-friendly.
-    </p>
+    <p>Through this course, I have learned HTML, CSS, and responsive design. I focus on accessibility, performance, and modern layout techniques.</p>
 
-    <p>
-      This portfolio represents my growth as a developer and showcases the projects I’ve worked on during the semester. My goal is to continue improving my design and coding abilities while building projects that reflect both creativity and technical precision.
-    </p>
+    <p>This portfolio showcases my work and growth as a developer, highlighting projects that reflect both technical and creative skills.</p>
   </section>
 
-
-
+  <!-- PROJECTS -->
   <section id="projects" class="fade-in">
     <h2>Projects</h2>
 
     <div class="projects">
 
-
       <div class="project">
-        <img src="images/project1.jpg" alt="Screenshot of project 1 showing website layout and design">
+        <img src="images/project1.jpg" alt="Website layout design project">
         <h3>Project One</h3>
-        <p>A web design project focused on layout and structure.</p>
+        <p>Modern layout design using HTML and CSS.</p>
       </div>
 
       <div class="project">
-        <img src="images/project2.jpg" alt="Screenshot of project 2 demonstrating responsive design">
+        <img src="images/project2.jpg" alt="Responsive website design example">
         <h3>Project Two</h3>
-        <p>A responsive website built using HTML and CSS.</p>
+        <p>Responsive site optimized for mobile and desktop.</p>
       </div>
 
-   
       <div class="project">
-        <img src="images/project3.jpg" alt="Screenshot of project 3 with modern UI elements">
+        <img src="images/project3.jpg" alt="Creative UI design project">
         <h3>Project Three</h3>
-        <p>A creative project highlighting UI design and styling.</p>
+        <p>Creative UI with styling and animations.</p>
       </div>
 
     </div>
   </section>
 
-
-
+  <!-- CONTACT -->
   <section id="contact" class="fade-in">
     <h2>Contact</h2>
-
     <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
 
+    <button onclick="showMessage()">Click Me</button>
+    <p id="message"></p>
   </section>
 
 </main>
+
+<footer>
+  <p>© 2026 Octavio Garza</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
