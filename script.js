@@ -1,39 +1,24 @@
-const scenes = document.querySelectorAll(".scene");
-let index = 0;
-let lock = false;
+const reveals = document.querySelectorAll(".reveal");
 
-function setScene(i) {
-  if (lock || i === index || i < 0 || i >= scenes.length) return;
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add("active");
+  });
+}, { threshold: 0.15 });
 
-  lock = true;
-  scenes[index].classList.remove("active");
-  index = i;
-  scenes[index].classList.add("active");
-
-  setTimeout(() => lock = false, 1200);
-}
-
-window.addEventListener("wheel", (e) => {
-  if (e.deltaY > 0) setScene(index + 1);
-  else setScene(index - 1);
-});
-
+reveals.forEach(el => observer.observe(el));
 
 
 const imgs = document.querySelectorAll(".gallery-img");
 const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightboxImg");
+const lightImg = document.getElementById("lightboxImg");
 
-const closeBtn = document.getElementById("closeBtn");
-const prev = document.getElementById("prev");
-const next = document.getElementById("next");
-
-let current = 0;
+let index = 0;
 const arr = Array.from(imgs);
 
 function open(i) {
-  current = i;
-  lightboxImg.src = arr[current].src;
+  index = i;
+  lightImg.src = arr[index].src;
   lightbox.classList.add("show");
 }
 
@@ -41,58 +26,54 @@ function close() {
   lightbox.classList.remove("show");
 }
 
-function nextImg() {
-  current = (current + 1) % arr.length;
-  lightboxImg.src = arr[current].src;
+function next() {
+  index = (index + 1) % arr.length;
+  lightImg.src = arr[index].src;
 }
 
-function prevImg() {
-  current = (current - 1 + arr.length) % arr.length;
-  lightboxImg.src = arr[current].src;
+function prev() {
+  index = (index - 1 + arr.length) % arr.length;
+  lightImg.src = arr[index].src;
 }
 
-imgs.forEach((img, i) => img.addEventListener("click", () => open(i)));
+imgs.forEach((img, i) => img.onclick = () => open(i));
 
-closeBtn.onclick = close;
-next.onclick = nextImg;
-prev.onclick = prevImg;
+document.getElementById("closeBtn").onclick = close;
+document.getElementById("next").onclick = next;
+document.getElementById("prev").onclick = prev;
 
-lightbox.onclick = (e) => {
+lightbox.onclick = e => {
   if (e.target === lightbox) close();
 };
 
-
-
-const videoLightbox = document.getElementById("videoLightbox");
+const videoModal = document.getElementById("videoModal");
 const openVideo = document.getElementById("openVideo");
 const closeVideo = document.getElementById("closeVideo");
-const modalVideo = document.getElementById("modalVideo");
+const player = document.getElementById("videoPlayer");
 
 openVideo.onclick = () => {
-  videoLightbox.classList.add("show");
-  modalVideo.play();
+  videoModal.classList.add("show");
+  player.play();
 };
 
-function closeVideoModal() {
-  videoLightbox.classList.remove("show");
-  modalVideo.pause();
-  modalVideo.currentTime = 0;
+function closeVid() {
+  videoModal.classList.remove("show");
+  player.pause();
+  player.currentTime = 0;
 }
 
-closeVideo.onclick = closeVideoModal;
+closeVideo.onclick = closeVid;
 
-videoLightbox.onclick = (e) => {
-  if (e.target === videoLightbox) closeVideoModal();
+videoModal.onclick = e => {
+  if (e.target === videoModal) closeVid();
 };
 
 
-
-document.addEventListener("keydown", (e) => {
+document.addEventListener("keydown", e => {
   if (e.key === "Escape") {
     close();
-    closeVideoModal();
+    closeVid();
   }
-
-  if (e.key === "ArrowRight") nextImg();
-  if (e.key === "ArrowLeft") prevImg();
+  if (e.key === "ArrowRight") next();
+  if (e.key === "ArrowLeft") prev();
 });
